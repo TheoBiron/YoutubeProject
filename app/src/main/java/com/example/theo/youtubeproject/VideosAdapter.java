@@ -10,11 +10,11 @@ import java.util.List;
 
 public class VideosAdapter extends RecyclerView.Adapter<VideosViewHolder>{
 
-    //private final Videos videos;
-    private final List<Video> videos;
+    private final Items items;
+    private OnVideoSelectedListener onVideoSelectedListener;
 
-    public VideosAdapter(List<Video> videos){
-        this.videos = videos;
+    public VideosAdapter(Items items){
+        this.items = items;
     }
 
     @Override
@@ -25,11 +25,16 @@ public class VideosAdapter extends RecyclerView.Adapter<VideosViewHolder>{
 
     @Override
     public void onBindViewHolder(VideosViewHolder holder, int position) {
-        holder.bind(videos.get(position));
+        holder.setOnVideoSelectedListener(onVideoSelectedListener);
+        holder.bind(items.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return videos != null ? videos.size() : 0;
+        return items != null ? items.size() : 0;
+    }
+
+    public void setOnVideoSelectedListener(OnVideoSelectedListener onVideoSelectedListener){
+        this.onVideoSelectedListener = onVideoSelectedListener;
     }
 }
