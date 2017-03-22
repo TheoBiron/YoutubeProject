@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -13,7 +14,7 @@ public class VideoDetails extends AppCompatActivity {
     private static final String DESCRIPTION = "DESCRIPTION";
     private String videoTitle;
     private String videoDescription;
-    private RelativeLayout relativeLayout;
+    private LinearLayout linearLayout;
     private TextView descriptionView;
 
     public static void start(Context context, String videoTitle, String description){
@@ -30,7 +31,7 @@ public class VideoDetails extends AppCompatActivity {
 
         videoTitle = getIntent().getStringExtra(VIDEO);
         videoDescription = getIntent().getStringExtra(DESCRIPTION);
-        relativeLayout = (RelativeLayout) findViewById(R.id.activity_video_details);
+        linearLayout = (LinearLayout) findViewById(R.id.activity_video_details);
         descriptionView = (TextView) findViewById(R.id.description);
         descriptionView.setText(videoDescription);
 
